@@ -1,7 +1,14 @@
-//your code here
+Particle[] particles;
 void setup()
 {
-	//your code here
+	size(300,300);
+  particles = new Particle[300];
+  for (int i = 0; i <particles.length; i++)
+  {
+    particles[i] = new NormalParticle();
+  }
+  particles[0]= new OddballParticle();
+  particles[1]= new JumboParticle();
 }
 void draw()
 {
@@ -9,18 +16,35 @@ void draw()
 }
 class NormalParticle
 {
-	//your code here
+	double dX,dY,dTheta,dSpeed;
+  NormalParticle()
+  {
+    dX = 150;
+    dY = 150;
+    dTheta = 2.03;
+    dSpeed = 8.25;
+  }
+  void move()
+  {
+  }
+  void show()
+  {
+  }
 }
 interface Particle
 {
-	//your code here
+	public void show();
+  public void move();
+  
 }
-class OddballParticle //uses an interface
+class OddballParticle implements Particle
 {
 	//your code here
 }
-class JumboParticle //uses inheritance
+class JumboParticle extends NormalParticle
 {
-	//your code here
+	public void show()
+  {
+  }
+  
 }
-
