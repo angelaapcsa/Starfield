@@ -1,15 +1,14 @@
 Particle[] particles;
 void setup()
 {
-	size(300,300);
-  particles = new Particle[300];
+	size(600,600);
+  particles = new Particle[500];
   for (int i = 0; i <particles.length; i++)
   {
     particles[i] = new NormalParticle();
-    particles[0]= new OddballParticle();
-    particles[1]= new JumboParticle();
   }
-  
+  particles[0]= new OddballParticle();
+  particles[1]= new JumboParticle();
 }
 void draw()
 {
@@ -26,10 +25,10 @@ class NormalParticle implements Particle
 	double dX,dY,dTheta,dSpeed;
   NormalParticle()
   {
-    dX = (int)(Math.random()*299)+1;
-    dY = (int)(Math.random()*299)+1;
-    dTheta = (int)(Math.random()*360)+1;
-    dSpeed = 2;
+    dX = 300;
+    dY = 300;
+    dTheta = (Math.random()*360)+1;
+    dSpeed = (Math.random()*10)+1;
   }
   public void move()
   {
@@ -38,7 +37,7 @@ class NormalParticle implements Particle
   }
   public void show()
   {
-    fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+    fill(255, 255, 102);
     ellipse((float)dX, (float)dY, 10,10);
   }
 }
@@ -54,9 +53,9 @@ class OddballParticle implements Particle
   int bColor;
   OddballParticle()
    {
-     bX = (int)(Math.random()*299)+1;
-     bY = (int)(Math.random()*299)+1;
-     bColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+     bX = (int)(Math.random()*200)+1;
+     bY = (int)(Math.random()*200)+1;
+     bColor = color(255);
    }
    void move()
    {
@@ -66,14 +65,14 @@ class OddballParticle implements Particle
    void show()
    {
      fill(bColor);
-     ellipse(bX,bY,10,10);
+     rect(bX,bY,20,20);
    }
 }
 class JumboParticle extends NormalParticle
 {
 	public void show()
   {
-    fill(256);
+    fill(255);
     ellipse((float)dX, (float)dY, 30,30);
   }
   
